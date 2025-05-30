@@ -4,7 +4,7 @@ import CartWidget from "./CardWidget"
 const Navbar = () => {
     return(
         <nav className="nav-container">
-            <h2>Tienda catdog</h2>
+            <img className="logo" src="../logo.png" alt="logo" />
             <div className="a-container">
                 <a href="">Alimentos</a>
                 <a href="">Juguetes</a>
