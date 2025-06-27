@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button, ButtonGroup } from 'react-bootstrap'
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, onAdd }) => {
   const [count, setCount] = useState(1)
 
   const sumar = () => {
@@ -12,6 +12,10 @@ const ItemCount = ({ stock }) => {
     if (count > 1) setCount(count - 1)
   }
 
+  const comprar = () => {
+    onAdd(count)
+  }
+
   return (
     <div className="text-center mt-3">
         <ButtonGroup className="mb-3">
@@ -20,7 +24,7 @@ const ItemCount = ({ stock }) => {
             <Button variant="outline-secondary" onClick={sumar}>+</Button>
         </ButtonGroup>
 
-        <Button variant="primary" className="w-100">
+        <Button variant="primary" className="w-100" onClick={comprar}>
             <img src="../cart.png" alt="Carrito" width="20" style={{ marginRight: '8px' }} />
             Agregar al carrito
         </Button>
