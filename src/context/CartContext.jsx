@@ -49,9 +49,19 @@ export const CartProvider = ({children}) => {
         return cart.some((prod)=> prod.id == id)
     }
 
+    //Cantidad de items en el carrito que se usa en el CardWidget
+    const cartQuantity = () => {
+        return cart.reduce((acc, prod)=> acc += prod.quantity, 0)
+    }
+
+    //Total a pagar
+    const cartTotal = () => {
+        return cart.reduce((acc, prod)=> acc += (prod.quantity * prod.price), 0)
+    }
+
 
     return(
-        <CartContext.Provider value={{cart, addItem, clear, removeItem}}>
+        <CartContext.Provider value={{cart, addItem, clear, removeItem, cartQuantity, cartTotal}}>
             {children}
         </CartContext.Provider>
     )
