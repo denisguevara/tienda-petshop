@@ -6,9 +6,11 @@ import Navbar from './components/Navbar'
 import Cart from './components/Cart'
 import Error from './components/Error';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Checkout from './components/Checkout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //importar al proveedor
-import { CartProvider } from './context/Cartcontext';
+import { CartProvider } from './context/CartContext';
+
 
 function App() {
   
@@ -22,6 +24,7 @@ function App() {
         <Route path='/category/:categoryId' element={<ItemListContainer greeting="Estas en la categoria: "/>}/>
         <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
         <Route path='*' element={<Error/>}/>
       </Routes>
       </CartProvider>
